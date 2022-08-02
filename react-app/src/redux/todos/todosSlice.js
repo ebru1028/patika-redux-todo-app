@@ -38,7 +38,7 @@ export const todosSlice = createSlice({
       const searchTitle = action.payload;
      
       if(state.itemsCopy.length === 0){
-        for (var i = 0; i < state.items.length; i++) {
+        for (let i = 0; i < state.items.length; i++) {
           state.itemsCopy[i] = state.items[i];
         }
       }
@@ -46,11 +46,11 @@ export const todosSlice = createSlice({
       if(searchTitle !==''){
         state.items = state.itemsCopy.filter(item => item.title.toLowerCase().includes(searchTitle.toLowerCase()));
       }
-      else {
 
+      else {
         state.items = [];
 
-        for (var i = 0; i < state.itemsCopy.length; i++) {
+        for (let i = 0; i < state.itemsCopy.length; i++) {
           state.items[i] = state.itemsCopy[i];
         }
 

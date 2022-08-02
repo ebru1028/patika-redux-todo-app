@@ -1,14 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
+
+import CssBaseline from "@material-ui/core/CssBaseline";
+import { MuiThemeProvider, createTheme } from "@material-ui/core/styles";
+
+const themeLight = createTheme({
+  palette: {
+    background: {
+      default: "#ececec"
+    }
+  }
+});
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <MuiThemeProvider theme={themeLight}>
+    <CssBaseline />
+    <Provider store={store}>
+       <App />
+    </Provider>
+  </MuiThemeProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
